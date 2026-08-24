@@ -30,40 +30,62 @@
   --warn-accent-hover: #d97706; /* État de survol des boutons du bandeau */
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-secondary);
-    font-family: 'Space Grotesk';
+    font-family: 'Space Grotesk', sans-serif;
     margin: 0;
     padding: 2rem;
+    padding: clamp(1rem, 4vw, 2rem);
 }
 
 footer {
     text-align: center;
     background-color: var(--bg-surface);
-    size: 100%;
+    width: 100%;
     border-radius: 15px;
-    padding: 1vh;
+    padding: 1.5rem 1rem;
 }
 
 footer p {
-    margin: 0
+    margin: 0;
+    word-break: break-word;
 }
 
+footer address {
+    font-style: normal;
+    margin-top: 0.5rem;
+}
+
+footer a {
+    color: var(--accent);
+}
 
 #bloc-titre {
     text-align: center;
-    margin: 5vh;
+    margin: 5vh 0;
 }
 
 #titre {
     color: var(--accent);
-    font-size: 10vh;
+    font-size: clamp(2.5rem, 10vh, 6rem);
     margin: 0;
+    line-height: 1.1;
 }
 
 #sous-titre {
   color: var(--text-primary);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
 .travaux {
@@ -71,13 +93,57 @@ footer p {
     border: var(--warn-border) solid 5px;
     border-radius: 20px;
     text-align: center;
-    margin: 5vh;
+    margin: 5vh 0;
+    padding: 1.5rem 1rem;
 }
 
 .travaux h1 {
     color: var(--warn-accent);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-top: 0;
 }
 
 .travaux p {
     color: var(--warn-text);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    #bloc-titre {
+        margin: 4vh 0;
+    }
+
+    .travaux {
+        border-width: 3px;
+        margin: 4vh 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    #bloc-titre {
+        margin: 3vh 0;
+    }
+
+    .travaux {
+        border-width: 3px;
+        border-radius: 14px;
+        margin: 3vh 0;
+    }
+
+    footer {
+        padding: 1rem 0.75rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
 }
