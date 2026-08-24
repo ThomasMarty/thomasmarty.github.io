@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* --- COULEURS DE FOND (BACKGROUNDS) --- */
+  --bg-main: #0f172a;       /* Fond principal de l'application */
+  --bg-surface: #1e293b;    /* Cartes, barres de navigation, éléments surélevés */
+  --bg-surface-hover: #334155; /* État de survol des cartes */
+  --bg-input: #1e293b;      /* Fond des champs de saisie */
+
+  /* --- COULEURS DE TEXTE (TYPOGRAPHY) --- */
+  --text-primary: #f8fafc;  /* Titres et textes importants (très lisible) */
+  --text-secondary: #94a3b8;/* Paragraphes, labels, dates, textes moins importants */
+  --text-muted: #64748b;    /* Placeholders, textes d'aide ou désactivés */
+
+  /* --- COULEURS D'ACCENT ET STATUTS --- */
+  --accent: #38bdf8;        /* Couleur d'accentuation (boutons principaux, liens) */
+  --accent-hover: #0ea5e9;  /* Accentuation au survol */
+  --accent-muted: #0369a1;  /* Accentuation plus sombre (ex: fond de badge) */
+
+  /* --- ÉLÉMENTS GRAPHIQUES (BORDERS & SHADOWS) --- */
+  --border: #334155;        /* Séparateurs, bordures de cartes et d'inputs */
+  --border-focus: #38bdf8;  /* Bordure d'un input sélectionné */
+  --shadow-main: rgba(0, 0, 0, 0.4); /* Ombre pour donner de la profondeur */
+
+  /* --- BANDEAU DE TRAVAUX (MAINTENANCE) --- */
+  --warn-bg: #2d2215;         /* Fond sombre ambré (très intégré au mode sombre) */
+  --warn-border: #b45309;     /* Bordure orange chaud / ambre */
+  --warn-text: #fde68a;       /* Texte jaune clair très lisible */
+  --warn-accent: #f59e0b;     /* Couleur vive pour les icônes ou liens importants */
+  --warn-accent-hover: #d97706; /* État de survol des boutons du bandeau */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk';
+    margin: 0;
+    padding: 2rem;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--bg-surface);
+    size: 100%;
+    border-radius: 15px;
+    padding: 1vh;
+}
+
+footer p {
+    margin: 0
+}
+
+
+#bloc-titre {
+    text-align: center;
+    margin: 5vh;
+}
+
+#titre {
+    color: var(--accent);
+    font-size: 10vh;
+    margin: 0;
+}
+
+#sous-titre {
+  color: var(--text-primary);
+}
+
+.travaux {
+    background: var(--warn-bg);
+    border: var(--warn-border) solid 5px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 5vh;
+}
+
+.travaux h1 {
+    color: var(--warn-accent);
+}
+
+.travaux p {
+    color: var(--warn-text);
+}
