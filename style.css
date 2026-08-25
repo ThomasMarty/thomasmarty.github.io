@@ -2,34 +2,55 @@
 
 :root {
   /* --- COULEURS DE FOND (BACKGROUNDS) --- */
-  --bg-main: #0f172a;       /* Fond principal de l'application */
-  --bg-surface: #1e293b;    /* Cartes, barres de navigation, éléments surélevés */
-  --bg-surface-hover: #334155; /* État de survol des cartes */
-  --bg-input: #1e293b;      /* Fond des champs de saisie */
+  --bg-main: #0f172a;           /* Fond principal de l'application (Slate 900) */
+  --bg-surface: #1e293b;        /* Cartes, barres de navigation, éléments surélevés */
+  --bg-surface-light: #334155;  /* Version plus claire pour dissocier des éléments imbriqués */
+  --bg-surface-hover: #334155;  /* État de survol des cartes */
+  --bg-input: #1e293b;          /* Fond des champs de saisie */
 
   /* --- COULEURS DE TEXTE (TYPOGRAPHY) --- */
-  --text-primary: #f8fafc;  /* Titres et textes importants (très lisible) */
-  --text-secondary: #94a3b8;/* Paragraphes, labels, dates, textes moins importants */
-  --text-muted: #64748b;    /* Placeholders, textes d'aide ou désactivés */
+  --text-primary: #f8fafc;      /* Titres et textes importants (très lisible) */
+  --text-secondary: #94a3b8;    /* Paragraphes, labels, dates, textes secondaires */
+  --text-muted: #64748b;        /* Placeholders, textes d'aide ou désactivés */
+  --text-link: #38bdf8;         /* Couleur par défaut pour les liens textuels */
 
   /* --- COULEURS D'ACCENT ET STATUTS --- */
-  --accent: #38bdf8;        /* Couleur d'accentuation (boutons principaux, liens) */
-  --accent-hover: #0ea5e9;  /* Accentuation au survol */
-  --accent-muted: #0369a1;  /* Accentuation plus sombre (ex: fond de badge) */
+  /* Accent Principal (Cyan/Sky) */
+  --accent: #38bdf8;            /* Couleur d'accentuation (boutons principaux, liens) */
+  --accent-hover: #0ea5e9;      /* Accentuation au survol */
+  --accent-muted: #0369a1;      /* Accentuation plus sombre (ex: fond de badge) */
+  --accent-light: #7dd3fc;      /* Teinte d'accentuation plus claire */
+
+  /* Statut : Succès (Vert) -> Utile pour vos validations de formulaires ou projets terminés */
+  --success: #22c55e;
+  --success-bg: #14532d;
+  --success-text: #bbf7d0;
+
+  /* Statut : Danger / Erreur (Rouge) */
+  --danger: #ef4444;
+  --danger-bg: #451a03;
+  --danger-text: #fca5a5;
 
   /* --- ÉLÉMENTS GRAPHIQUES (BORDERS & SHADOWS) --- */
-  --border: #334155;        /* Séparateurs, bordures de cartes et d'inputs */
-  --border-focus: #38bdf8;  /* Bordure d'un input sélectionné */
+  --border: #334155;            /* Séparateurs, bordures de cartes et d'inputs */
+  --border-light: #475569;      /* Bordure plus claire pour éléments survolés */
+  --border-focus: #38bdf8;      /* Bordure d'un input sélectionné */
   --shadow-main: rgba(0, 0, 0, 0.4); /* Ombre pour donner de la profondeur */
+  --shadow-subtle: rgba(0, 0, 0, 0.2);
 
   /* --- BANDEAU DE TRAVAUX (MAINTENANCE) --- */
-  --warn-bg: #2d2215;         /* Fond sombre ambré (très intégré au mode sombre) */
-  --warn-border: #b45309;     /* Bordure orange chaud / ambre */
-  --warn-text: #fde68a;       /* Texte jaune clair très lisible */
-  --warn-accent: #f59e0b;     /* Couleur vive pour les icônes ou liens importants */
+  --warn-bg: #2d2215;           /* Fond sombre ambré (très intégré au mode sombre) */
+  --warn-border: #b45309;       /* Bordure orange chaud / ambre */
+  --warn-text: #fde68a;         /* Texte jaune clair très lisible */
+  --warn-accent: #f59e0b;       /* Couleur vive pour les icônes ou liens importants */
   --warn-accent-hover: #d97706; /* État de survol des boutons du bandeau */
+
+  /* --- TRANSPARENCES (Couleurs de type "Glassmorphism") --- */
+  --glass-05: rgba(255, 255, 255, 0.05); /* Idéal pour un léger reflet au survol */
+  --glass-10: rgba(56, 189, 248, 0.1);  /* Fond de badge transparent assorti à l'accent */
 }
 
+/* --- STRUCTURE & GLOBAL --- */
 *,
 *::before,
 *::after {
@@ -38,39 +59,31 @@
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth; /* Défilement fluide lors des clics sur le menu */
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-secondary);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif; /* Remplacement par Inter pour le texte courant (plus lisible) */
     margin: 0;
-    padding: 2rem;
     padding: clamp(1rem, 4vw, 2rem);
+    line-height: 1.5;
 }
 
-footer {
-    text-align: center;
-    background-color: var(--bg-surface);
-    width: 100%;
-    border-radius: 15px;
-    padding: 1.5rem 1rem;
+a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
-footer p {
-    margin: 0;
-    word-break: break-word;
+/* --- TYPOGRAPHIE --- */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-primary);
 }
 
-footer address {
-    font-style: normal;
-    margin-top: 0.5rem;
-}
-
-footer a {
-    color: var(--accent);
-}
-
+/* --- EN-TÊTE / HEADER --- */
 #bloc-titre {
     text-align: center;
     margin: 5vh 0;
@@ -83,67 +96,202 @@ footer a {
     line-height: 1.1;
 }
 
-#sous-titre {
-  color: var(--text-primary);
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    text-align: center;
+    padding: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
 }
 
+nav a {
+    border-radius: 100px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    background-color: var(--glass-10);
+    color: var(--accent);
+}
+
+/* --- BANDEAU TRAVAUX --- */
 .travaux {
     background: var(--warn-bg);
-    border: var(--warn-border) solid 5px;
-    border-radius: 20px;
+    border: var(--warn-border) solid 2px;
+    border-radius: 16px;
     text-align: center;
-    margin: 5vh 0;
-    padding: 1.5rem 1rem;
+    margin: 4rem auto;
+    padding: 2rem 1.5rem;
+    max-width: 800px;
+    box-shadow: 0 10px 30px var(--shadow-subtle);
 }
 
 .travaux h1 {
     color: var(--warn-accent);
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
     margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 .travaux p {
     color: var(--warn-text);
     font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     max-width: 60ch;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
+/* --- SECTIONS / CATÉGORIES --- */
+.categorie {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    background-color: var(--bg-surface);
+    border: var(--border) solid 1px;
+    border-radius: 24px;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1000px;
+    box-shadow: 0 4px 20px var(--shadow-main);
+}
+
+.categorie h1 {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.75rem;
+}
+
+/* --- CARTES PROJETS --- */
+.projet {
+    background-color: var(--bg-surface-light);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    max-width: 300px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.projet:hover {
+    background-color: var(--bg-surface-hover);
+    transform: translateY(-4px);
+}
+
+.projet h2 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.projet img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- BADGES --- */
+.badge {
+    display: inline-block;
+    background-color: var(--glass-10);
+    color: var(--accent);
+    border: 1px solid var(--glass-05);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- PIED DE PAGE --- */
+footer {
+    text-align: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin: 0;
+    word-break: break-word;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 0.75rem;
+}
+
+footer a {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+footer span {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* --- RESPONSIVE / ADAPTATIVITÉ --- */
 @media (max-width: 768px) {
     body {
         padding: 1.5rem 1rem;
     }
 
-    #bloc-titre {
-        margin: 4vh 0;
+    nav {
+        padding: 0.25rem;
+    }
+    
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 
-    .travaux {
-        border-width: 3px;
-        margin: 4vh 0;
+    .categorie {
+        padding: 1.5rem;
+        border-radius: 16px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 1rem;
-    }
-
     #bloc-titre {
         margin: 3vh 0;
     }
 
     .travaux {
-        border-width: 3px;
-        border-radius: 14px;
-        margin: 3vh 0;
+        border-radius: 12px;
+        padding: 1.5rem 1rem;
     }
 
     footer {
-        padding: 1rem 0.75rem;
-        border-radius: 10px;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
         font-size: 0.9rem;
     }
 }

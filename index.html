@@ -6,16 +6,70 @@
 
     <title>Thomas Marty</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.svg"
 </head>
 <body>
     <div id="bloc-titre">
         <h1 id="titre">Thomas Marty</h1>
-        <span id="sous-titre">Mon Portfolio</span>
     </div>
+
+    <nav id="nav-bar">
+        <a href="#webapps">Web Apps</a>
+        <a href="#hass">Home Assistant</a>
+        <a href="#windev">WinDev</a>
+    </nav>
 
     <div class="travaux">
         <h1>Site en travaux</h1>
         <p>Ceci n'est que le squelette de ce site, une version plus aboutie devrait bientôt faire son apparition</p>
+    </div>
+
+    <div id="webapps" class="categorie">
+        <h1>Web Apps</h1>
+
+        <div class="projet" id="mairiesmo">
+            <span class="badge">Découverte du HTML</span>
+            <h2>Mairie de SMO</h2>
+            <img src="img/mairiesmo-icon.svg" alt="Icone du projet de site pour la mairie de Saint-Martin-D'Oydes">
+        </div>
+
+        <div class="projet" id="fichesbristol">
+            <span class="badge">Projet de l'été</span>
+            <h2>Fiches Bristol</h2>
+            <img src="img/fichesbristol-icon.svg" alt="Icone de Fiches Bristol">
+        </div>
+
+        <div class="projet" id="portfolio">
+            <span class="badge">Celui-ci !</span>
+            <h2>Portfolio</h2>
+            <img src="img/favicon.svg" alt="Icone du Portfolio">
+        </div>
+    </div>
+
+    <div id="hass" class="categorie">
+        <h1>Home Assistant</h1>
+
+        <div class="projet" id="dashboardhass">
+            <span class="badge">Accès au template</span>
+            <h2>Dashboard HA</h2>
+            <img src="img/dashboardhass-icon.svg" alt="Icone du Dashboard HA">
+        </div>
+    </div>
+
+    <div id="windev" class="categorie">
+        <h1>WinDev</h1>
+
+        <div class="projet" id="facturx">
+            <span class="badge">Réalisé en stage</span>
+            <h2>Factur-X</h2>
+            <img src="img/facturx-icon.png" alt="Icone de Factur-X">
+        </div>
+
+        <div class="projet" id="ecranpixma">
+            <span class="badge">Récup.</span>
+            <h2>Écran PIXMA</h2>
+            <img src="img/ecranpixma-icon.png" alt="Icone de PIXMA">
+        </div>
     </div>
 
     <footer>
@@ -23,7 +77,7 @@
         <address>
             Contactez-moi : <a href="mailto:thomas.marty16@outlook.fr">thomas.marty16@outlook.fr</a>
         </address>
-        <span>Style CSS par Gemini.</span>
+        <span>Style CSS épaulé par Gemini.</span>
     </footer>
 </body>
 </html>
