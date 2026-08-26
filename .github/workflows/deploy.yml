@@ -2,7 +2,12 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Changez 'main' par 'master' si c'est votre branche principale
+    branches: [ main ]
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
 
 jobs:
   build-and-deploy:
@@ -12,12 +17,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Indiquez le dossier de votre site (ex: './dist' ou './build' si vous compilez)
+          path: '.' 
 
       - name: Deploy to GitHub Pages
         id: deployment
