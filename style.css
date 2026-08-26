@@ -209,6 +209,18 @@ nav a:hover {
     display: block;
 }
 
+.max {
+    max-width: none;
+}
+
+.projet-infos.travaux {
+    margin: 0;
+}
+
+.projet-infos {
+    margin-top: 1.5rem !important;
+}
+
 /* --- BADGES --- */
 .badge {
     display: inline-block;
@@ -256,6 +268,10 @@ footer span {
     margin-top: 1rem;
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+.cache {
+    display: none;
 }
 
 /* --- RESPONSIVE / ADAPTATIVITÉ --- */
